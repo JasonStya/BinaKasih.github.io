@@ -1,0 +1,105 @@
+#vm{
+    background-color: #49c3d8;
+}
+
+#sejarah{
+    padding-top: 62px;
+    font-family: arial;
+}
+
+.sejarah_title{
+    color: #0097b2;
+    font-weight: 600;
+}
+
+.sejarah_img{
+    border: #0097b2 10px solid;
+    border-radius: 10px;
+    width: 700px;
+    height: 890px;
+}
+
+.vm_c div div h3{
+    color: #0097b2;
+    font-weight: 600;
+}
+
+.vm_c div div p{
+    color: white;
+    font-size: 17px;
+}
+
+.core{
+    display: flex;
+    flex-direction: column;
+}
+
+.core h2{
+    color: #0097b2;
+}
+
+.img_core{
+    width: 70px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.core_info{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+.core_info div h3{
+    color: #0097b2;
+}
+
+#donation{
+    background-color: #49c3d8;
+}
+
+.donat{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.donat div h3{
+    margin: 0px;
+}
+
+.donat_button{
+    background-color: #0097b2;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.donat_button:hover{
+    background-color: #1d7d8e;
+}
+
+
+.donat_button a{
+    text-decoration: none;
+    color:white
+}
+
+.donat div h3{
+    color: white;
+}
+
+@media (max-width:1199px){
+    .donat{
+        flex-direction: column; 
+    }
+
+    .donat_button{
+        margin-top: 30px;
+        width: 130px;
+    }
+}

@@ -1,0 +1,224 @@
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .containers {
+        width: 80%;
+        margin: 30px auto;
+        position: relative;
+    }
+
+    .containers h2 {
+        color: #0097b2;
+        margin-bottom: 20px;
+    }
+
+    button {
+        background-color: #0097b2;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #005f73;
+    }
+
+    button.add-article-button {
+        position: absolute;
+        bottom: -2px;
+        right: 10px;
+        background-color: #0097b2;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button.add-article-button:hover {
+        background-color: #005f73;
+    }
+
+    /* Grid layout for articles */
+    .article-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    article {
+        background-color: #fafafa;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.2s;
+        display: flex;
+        flex-direction: row;
+    }
+
+    article:hover {
+        transform: scale(1.02);
+    }
+
+    article img {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        margin-right: 15px;
+    }
+
+    article .text-content {
+        padding: 15px;
+        flex: 1;
+    }
+
+    article .text-content h2 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    article .text-content p {
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    /* Modal styles */
+    .modal {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal.show {
+        display: flex;
+        opacity: 1;
+    }
+
+    .modalcontent {
+        background-color: white;
+        padding: 20px;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 8px;
+        position: relative;
+        max-height: 90%;
+        overflow-y: auto;
+    }
+
+    .modalcontent img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin-bottom: 15px;
+        max-height: 200px;
+    }
+
+    .modalcontent input,
+    .modalcontent textarea {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .modalcontent h2 {
+        margin-top: 0;
+    }
+
+    .modalcontent .close-modal {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        cursor: pointer;
+        font-size: 24px;
+        color: #333;
+    }
+
+    .pagination {
+        position: relative;
+        bottom: 5px;
+        left: 0;
+        text-align: left;
+        margin-left: 5px;
+        margin-top: 20px;
+    }
+
+    .pagination button {
+        background-color: #0097b2;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 0 5px;
+    }
+
+    .pagination button:hover {
+        background-color: #005f73;
+    }
+
+    .close-delete-modal {
+        cursor: pointer;
+        color: red;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        /* Stack articles in a single column */
+        .article-container {
+            grid-template-columns: 1fr;
+        }
+
+        /* Make pagination buttons smaller */
+        .pagination button {
+            padding: 4px 8px;
+            font-size: 0.8rem;
+        }
+
+        /* Adjust modal width */
+        .modalcontent {
+            width: 90%;
+        }
+
+        /* Button size adjustment */
+        button {
+            padding: 8px 12px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        /* Reduce the font size of article text */
+        article .text-content h2 {
+            font-size: 0.9rem;
+        }
+
+        article .text-content p {
+            font-size: 0.8rem;
+        }
+
+        /* Further adjust the modal content */
+        .modalcontent {
+            padding: 15px;
+        }
+
+        .modalcontent img {
+            max-height: 150px;
+        }
+    }

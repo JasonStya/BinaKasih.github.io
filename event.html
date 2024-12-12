@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/calender.css">
+    <link rel="stylesheet" href="css/header&footer.css">
+    
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .event-icon {
+        width: 50px;
+        height: 55px;
+        background-image: url('image/calendar.png');
+        margin-right: 10px;
+        background-color: lightgray;
+        background-size: cover;
+    }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <section id="nav">
+        <nav class="nav_bar navbar fixed-top navbar-expand-lg" aria-label="Offcanvas navbar large">
+
+            <div class="container-fluid">
+                
+                <img class="nav_title_img "src="image/Bina Kasih_Logo Hires.png" height="70" alt="Mahakam_logo">
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+            
+                    <span class="navbar-toggler-icon"></span>
+            
+                </button>
+            
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+        
+                        <div class="offcas_navbar_b offcanvas-header">
+
+                            <h4 class="nav_title_off offcanvas-title" id="offcanvasNavbar2Label">BINA KASIH</h4>
+            
+                            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            
+                        </div>
+                            
+                        <div class="offcas_navbar_b offcanvas-body flex-grow-1">
+                    
+                                <ul class="nav_ul navbar-nav justify-content-center flex-grow-1" >
+                    
+                                    <li class="nav_li nav-item">
+                    
+                                        <a class="nav_a act nav-link" aria-current="page" href="index.html"><p class="px-1 mb-0">HOME</p></a>
+                    
+                                    </li>
+
+                                    <li class="nav_li nav-item">
+                    
+                                        <a class="nav_a act nav-link" aria-current="page" href="about.html"><p class="px-1 mb-0">ABOUT US</p></a>
+                    
+                                    </li>
+                    
+                                    <li class="nav_li nav-item">
+                    
+                                        <div class="dropdown">
+
+                                            <button class="dropdown-btn">ACADEMICS</button>
+
+                                            <ul class="dropdown-content">
+
+                                                <li class="nav_li nav-item">
+                    
+                                                    <a class="nav_a act nav-link" aria-current="page" href="tk.html"><p class="px-1 mb-0">TK</p></a>
+                                
+                                                </li>
+
+                                                <li class="nav_li nav-item">
+                    
+                                                    <a class="nav_a act nav-link" aria-current="page" href="sd.html"><p class="px-1 mb-0">SD</p></a>
+                                
+                                                </li>
+
+                                                <li class="nav_li nav-item">
+                    
+                                                    <a class="nav_a act nav-link" aria-current="page" href="smp.html"><p class="px-1 mb-0">SMP</p></a>
+                                
+                                                </li>
+
+                                                <li class="nav_li nav-item">
+                    
+                                                    <a class="nav_a act nav-link" aria-current="page" href="sma.html"><p class="px-1 mb-0">SMA</p></a>
+                                
+                                                </li>
+
+                                                <li class="nav_li nav-item">
+                    
+                                                    <a class="nav_a act nav-link" aria-current="page" href="smk.html"><p class="px-1 mb-0">SMK</p></a>
+                                
+                                                </li>
+            
+                                            </ul>
+                                        </div>
+                    
+                                    </li>
+
+                                    <li class="nav_li nav-item">
+                    
+                                        <a class="nav_a act nav-link" aria-current="page" href="event.html"><p class="px-1 mb-0">EVENT</p></a>
+                    
+                                    </li>
+
+                                    <li class="nav_li nav-item">
+                    
+                                        <a class="nav_a act nav-link" aria-current="page" href="daftar.html"><p class="px-1 mb-0">REGISTRATION</p></a>
+                    
+                                    </li>
+
+
+                                    <li class="nav_li nav-item">
+                    
+                                        <a class="nav_a act nav-link" aria-current="page" href="karir.html"><p class="px-1 mb-0">CAREER</p></a>
+                    
+                                    </li>
+
+                                    <li class="nav_li nav-item">
+                    
+                                        <a class="nav_a act nav-link" aria-current="page" href="kontak.html"><p class="px-1 mb-0">CONTACT</p></a>
+                    
+                                    </li>
+
+                                    <li class="nav_li nav-item">
+                    
+                                        <a class="nav_a nav-link" aria-current="page" href="#"><p class="nav_line px-3 mb-0">|</p></a>
+                    
+                                    </li>
+
+                                    <li class="nav_img">
+                                        
+                                        <ul class="nav_ul_img navbar-nav justify-content-start flex-grow-1"">
+
+                                            <li class="nav_li_img nav-item">
+                    
+                                                <a class="nav_img " href="#"><img class="logo_pic" width="30px" src="image/youtube-app-white-icon.png" alt="youtube"></a>
+                            
+                                            </li>
+
+
+                                            <li class="nav_li_img nav-item">
+                    
+                                                <a class="nav_img " href="#"><img class="logo_pic" width="30px" src="image/icons8-facebook-50.png" alt="youtube"></a>
+                            
+                                            </li>
+
+
+                                            <li class="nav_li_img nav-item">
+                    
+                                                <a class="nav_img " href="#"><img class="logo_pic" width="25px"src="image/instagram-white-icon.png" alt="youtube"></a>
+                            
+                                            </li>
+
+                                        </ul>
+
+
+                                    </li>
+
+                                </ul>
+                    </div>
+
+                </div>
+            
+                </div>
+            
+            </div>
+        
+        </nav>
+    </section>
+
+    <section class="calender_con">
+        <!-- Calendar and Event List Container -->
+    <div class="containerak">
+        <!-- Calendar Section -->
+        <div class="calendar-container">
+            <div class="calendar">
+                <div class="calendar-header">
+                    <h2 id="monthYear"></h2>
+                </div>
+                <div class="calendar-days">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="calendar-dates" id="calendarDates"></div>
+            </div>
+        </div>
+
+        <!-- Event List Section -->
+        <div class="event-list">
+            <h3>Event List</h3>
+            <ul id="eventList"></ul>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Event</h3>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="eventInput" placeholder="Event title" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+                <input type="time" id="eventTime" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+                <button id="addEventBtn" style="width: 100%; padding: 10px; background-color: #0097b2; color: white; border: none; cursor: pointer;">Add Event</button>
+                <p id="errorMessage" style="color: red; display: none;">You can only add 3 events per day!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+          <h2>Admin Password</h2>
+          <input
+            type="password"
+            id="adminPasswordInput"
+            placeholder="Enter Admin Password"
+            style="width: 100%; padding: 10px; margin-bottom: 10px; font-size: 16px;"
+          />
+          <div style="text-align: right;">
+            <button id="submitPasswordBtn" style="padding: 10px 20px; margin-right: 10px;">Submit</button>
+            <button id="cancelPasswordBtn" style="padding: 10px 20px;">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="article_con">
+        <div class="containers">
+            <h2>ARTICLES</h2>
+            <div class="article-container" id="articleList"></div>
+            <div class="pagination" id="paginationButtons"></div>
+            <button class="add-article-button" onclick="openArticleModal()">Add New Article</button>
+        </div>
+    
+        <!-- Modal for Adding Article -->
+        <div id="addArticleModal" class="modal_article">
+            <div class="modalcontent">
+                <span class="close-modal" onclick="closeArticleModal()">×</span>
+                <h2>Add New Article</h2>
+                <input type="text" id="authorName" placeholder="Your Name" required>
+                <input type="text" id="articleTitle" placeholder="Article Title" required>
+                <textarea id="articleContent" placeholder="Article Content" rows="5" required></textarea>
+                <label for="articleImage">Choose an image</label>
+                <input type="file" id="articleImage" accept="image/*" required>
+                <input type="password" id="adminPassword" placeholder="Admin Password" required>
+                <button class="button" onclick="confirmAddArticle()">Add Article</button>
+            </div>
+        </div>
+    
+        <!-- Modal for Article Details -->
+        <div id="viewArticleModal" class="modal_article">
+            <div class="modalcontent">
+                <span class="close-modal" onclick="closeViewModal()">×</span>
+                <img id="modalImage" src="" alt="Article Image">
+                <div class="article-title-con1">
+                    <h2 id="modalTitle"></h2>
+                    <p class="article-date-modal" id="modalDate"></p>
+                </div>
+                <p id="modalAuthor"></p>
+                <p id="modalContent"></p>
+                <button class="delete-article" onclick="openDeleteModal()">
+                    <i class="fa fa-trash-o"></i>
+                </button>
+            </div>
+        </div>
+    
+        <!-- Modal for Delete Confirmation -->
+        <div id="deleteArticleModal" class="modal_article">
+            <div class="modalcontent">
+                <span class="close-delete-modal" onclick="closeDeleteModal()">×</span>
+                <h2>Confirm Deletion</h2>
+                <p>Please enter the admin password to delete this article.</p>
+                <input type="password" id="adminPasswordForDelete" placeholder="Admin Password" required>
+                <button onclick="deleteArticle()">Confirm Deletion</button>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<section id="footer">
+    <div class="container">
+        <footer class="py-5">
+            <div class="row">
+
+                <!-- Contact Information -->
+                <div class="col-lg-7 col-md-8 col-sm-12 mb-3">
+                    <div class="footer_info">
+                        <div>
+                            <img src="image/Bina Kasih_Logo Hires.png" height="65" alt="Bina Kasih Logo">
+                            <p>SEKOLAH KRISTEN BINA KASIH JAMBI</p>
+                        </div>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                        </p>
+                        <ul>
+                            <li>
+                                <div class="cont">
+                                    <img class="footer_img" src="image/icons8-phone-50.png" alt="Phone Icon">
+                                    <p>08123456789</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cont">
+                                    <img class="footer_img" src="image/icons8-mail-50.png" alt="Email Icon">
+                                    <p>binakasih@gmail.com</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cont">
+                                    <img class="footer_img" src="image/icons8-location-48.png" alt="Location Icon">
+                                    <p>
+                                        Jalan Prof. HMO Bafadhal Lorong Kemang II No.102, RT.04, Cemp. Putih, 
+                                        Kec. Jelutung, Kota Jambi, Jambi 36134
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="col-lg-2 col-md-2 col-sm-12 mb-3">
+                    <div class="footer_nav">
+                        <ul class="nav_ul navbar-nav justify-content-center flex-grow-1">
+                            <li class="nav_li nav-item">
+                                <a class="nav_a nav-link" href="index.html">
+                                    <p class="px-1 mb-0">HOME</p>
+                                </a>
+                            </li>
+                            <li class="nav_li nav-item">
+                                <a class="nav_a nav-link" href="about.html">
+                                    <p class="px-1 mb-0">ABOUT US</p>
+                                </a>
+                            </li>
+                            <li class="nav_li nav-item">
+                                <div class="dropdownf">
+                                    <button class="dropdownf-btn">ACADEMICS</button>
+                                    <ul class="dropdownf-content">
+                                        <li><a class="nav_a nav-link" href="tk.html"><p class="px-1 mb-0">TK</p></a></li>
+                                        <li><a class="nav_a nav-link" href="sd.html"><p class="px-1 mb-0">SD</p></a></li>
+                                        <li><a class="nav_a nav-link" href="smp.html"><p class="px-1 mb-0">SMP</p></a></li>
+                                        <li><a class="nav_a nav-link" href="sma.html"><p class="px-1 mb-0">SMA</p></a></li>
+                                        <li><a class="nav_a nav-link" href="smk.html"><p class="px-1 mb-0">SMK</p></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav_li nav-item">
+                                <a class="nav_a nav-link" href="event.html">
+                                    <p class="px-1 mb-0">EVENT</p>
+                                </a>
+                            </li>
+                            <li class="nav_li nav-item">
+                                <a class="nav_a nav-link" href="daftar.html">
+                                    <p class="px-1 mb-0">REGISTRATION</p>
+                                </a>
+                            </li>
+                            <li class="nav_li nav-item">
+                                <a class="nav_a nav-link" href="karir.html">
+                                    <p class="px-1 mb-0">CAREER</p>
+                                </a>
+                            </li>
+                            <li class="nav_li nav-item">
+                                <a class="nav_a nav-link" href="kontak.html">
+                                    <p class="px-1 mb-0">CONTACT</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="col-lg-3 col-md-5 col-sm-12 mb-3">
+                    <div class="footer_social">
+                        <p>Follow us on Social Media</p>
+                        <ul>
+                            <li><img class="logo_pic" src="image/youtube-app-white-icon.png" alt="YouTube Icon"></li>
+                            <li><img class="logo_pic" src="image/icons8-facebook-50.png" alt="Facebook Icon"></li>
+                            <li><img class="logo_pic" src="image/instagram-white-icon.png" alt="Instagram Icon"></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+</section>
+
+
+    <script src="JS/calender.js"></script>
+    <script src="JS/article.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        .containers {
+            width: 80%;
+            margin: 30px auto;
+            position: relative;
+        }
+    
+        .containers h2 {
+            color: #0097b2;
+            margin-bottom: 20px;
+        }
+    
+        button {
+            background-color: #0097b2;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: #005f73;
+        }
+    
+        button.add-article-button {
+            position: absolute;
+            bottom: -2px;
+            right: 10px;
+            background-color: #0097b2;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    
+        button.add-article-button:hover {
+            background-color: #005f73;
+        }
+
+
+    
+        /* Grid layout for articles */
+        .article-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    
+        article {
+            background-color: #fafafa;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: row;
+        }
+    
+        article:hover {
+            transform: scale(1.02);
+        }
+    
+        article img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+    
+        article .text-content {
+            padding: 15px;
+            flex: 1;
+        }
+    
+        article .text-content h2 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+    
+        article .text-content p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+    
+        /* Modal styles */
+        .modal {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+    
+        .modalcontent {
+            background-color: white;
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 8px;
+            position: relative;
+            max-height: 90%;
+            overflow-y: auto;
+        }
+    
+        .modalcontent img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 15px;
+            max-height: 200px;
+        }
+    
+        .modalcontent input,
+        .modalcontent textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    
+        .modalcontent h2 {
+            margin-top: 0;
+        }
+    
+        .modalcontent .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #333;
+        }
+    
+        .pagination {
+            position: relative;
+            bottom: 5px;
+            left: 0;
+            text-align: left;
+            margin-left: 5px;
+            margin-top: 20px;
+        }
+    
+        .pagination button {
+            background-color: #0097b2;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+    
+        .pagination button:hover {
+            background-color: #005f73;
+        }
+    
+        .close-delete-modal {
+            cursor: pointer;
+            color: red;
+        }
+    
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            /* Stack articles in a single column */
+            .article-container {
+                grid-template-columns: 1fr;
+            }
+    
+            /* Make pagination buttons smaller */
+            .pagination button {
+                padding: 4px 8px;
+                font-size: 0.8rem;
+            }
+    
+            /* Adjust modal width */
+            .modalcontent {
+                width: 90%;
+            }
+    
+            /* Button size adjustment */
+            button {
+                padding: 8px 12px;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            /* Reduce the font size of article text */
+            article .text-content h2 {
+                font-size: 0.9rem;
+            }
+    
+            article .text-content p {
+                font-size: 0.8rem;
+            }
+    
+            /* Further adjust the modal content */
+            .modalcontent {
+                padding: 15px;
+            }
+    
+            .modalcontent img {
+                max-height: 150px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="containers">
+        <h2>ARTICLES</h2>
+        <div class="article-container" id="articleList"></div>
+        <div class="pagination" id="paginationButtons"></div>
+        <button class="add-article-button" onclick="openArticleModal()">Add New Article</button>
+    </div>
+
+    <!-- Modal for Adding Article -->
+    <div id="addArticleModal" class="modal">
+        <div class="modalcontent">
+            <span class="close-modal" onclick="closeArticleModal()">×</span>
+            <h2>Add New Article</h2>
+            <input type="text" id="authorName" placeholder="Your Name" required>
+            <input type="text" id="articleTitle" placeholder="Article Title" required>
+            <textarea id="articleContent" placeholder="Article Content" rows="5" required></textarea>
+            <label for="articleImage">Choose an image</label>
+            <input type="file" id="articleImage" accept="image/*" required>
+            <input type="password" id="adminPassword" placeholder="Admin Password" required>
+            <button onclick="confirmAddArticle()">Add Article</button>
+        </div>
+    </div>
+
+    <!-- Modal for Article Details -->
+    <div id="viewArticleModal" class="modal">
+        <div class="modalcontent">
+            <span class="close-modal" onclick="closeViewModal()">×</span>
+            <img id="modalImage" src="" alt="Article Image">
+            <h2 id="modalTitle"></h2>
+            <p id="modalAuthor"></p>
+            <p id="modalDate"></p>
+            <p id="modalContent"></p>
+            <button onclick="openDeleteModal()">Delete Article</button>
+        </div>
+    </div>
+
+    <!-- Modal for Delete Confirmation -->
+    <div id="deleteArticleModal" class="modal">
+        <div class="modalcontent">
+            <span class="close-delete-modal" onclick="closeDeleteModal()">×</span>
+            <h2>Confirm Deletion</h2>
+            <p>Please enter the admin password to delete this article.</p>
+            <input type="password" id="adminPasswordForDelete" placeholder="Admin Password" required>
+            <button onclick="deleteArticle()">Confirm Deletion</button>
+        </div>
+    </div>
+
+    <script>
+        const ADMIN_PASSWORD = "binakasih";
+        const ARTICLES_PER_PAGE = 6;
+        let articles = JSON.parse(localStorage.getItem('articles')) || [];
+        let currentPage = 1;
+    
+        // Sort articles by date in descending order
+        articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+    
+        window.onload = function () {
+            displayArticles();
+            displayPagination();
+        };
+    
+        // Open modal for adding articles
+        function openArticleModal() {
+            document.getElementById('addArticleModal').classList.add('show');
+        }
+    
+        // Close the add article modal
+        function closeArticleModal() {
+            document.getElementById('addArticleModal').classList.remove('show');
+            clearForm();
+        }
+    
+        // Add article with validation and password protection
+        function confirmAddArticle() {
+            const password = document.getElementById('adminPassword').value;
+            if (password === ADMIN_PASSWORD) {
+                const authorName = document.getElementById('authorName').value;
+                const title = document.getElementById('articleTitle').value;
+                const content = document.getElementById('articleContent').value;
+                const imageFile = document.getElementById('articleImage').files[0];
+    
+                if (!authorName || !title || !content || !imageFile) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+    
+                const reader = new FileReader();
+                reader.onloadend = function () {
+                    const imageBase64 = reader.result;
+    
+                    // Check if the image already exists in any article
+                    const isDuplicate = articles.some(article => article.image === imageBase64);
+                    if (isDuplicate) {
+                        alert("This image has been used before. Please choose a different image.");
+                        return;
+                    }
+    
+                    // Save new article
+                    const newArticle = {
+                        author: authorName,
+                        title: title,
+                        content: content,
+                        image: imageBase64,
+                        date: new Date().toISOString(),
+                    };
+    
+                    articles.push(newArticle);
+                    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    localStorage.setItem('articles', JSON.stringify(articles));
+    
+                    displayArticles();
+                    displayPagination();
+                    closeArticleModal();
+                };
+                reader.readAsDataURL(imageFile);
+            } else {
+                alert("Incorrect Password");
+            }
+        }
+    
+        // Display articles with pagination
+        function displayArticles() {
+            const articleList = document.getElementById('articleList');
+            articleList.innerHTML = '';
+            const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
+            const endIndex = startIndex + ARTICLES_PER_PAGE;
+            const articlesToDisplay = articles.slice(startIndex, endIndex);
+    
+            articlesToDisplay.forEach((article, index) => {
+                const articleElement = document.createElement('article');
+                articleElement.classList.add('article');
+                articleElement.innerHTML = `
+                    <img src="${article.image}" alt="Article Image">
+                    <div class="text-content">
+                        <h2>${article.title}</h2>
+                        <p>${article.content.slice(0, 100)}...</p>
+                    </div>
+                `;
+                articleElement.onclick = function () {
+                    viewArticleDetails(index + startIndex);
+                };
+                articleList.appendChild(articleElement);
+            });
+        }
+    
+        // Display pagination buttons dynamically
+        function displayPagination() {
+            const paginationButtons = document.getElementById('paginationButtons');
+            paginationButtons.innerHTML = '';
+    
+            const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.innerText = i;
+                button.onclick = function () {
+                    currentPage = i;
+                    displayArticles();
+                    displayPagination();
+                };
+                paginationButtons.appendChild(button);
+            }
+        }
+    
+        // View article details in a modal
+        function viewArticleDetails(index) {
+            const article = articles[index];
+            document.getElementById('modalImage').src = article.image;
+            document.getElementById('modalTitle').innerText = article.title;
+            document.getElementById('modalAuthor').innerText = `By: ${article.author}`;
+            document.getElementById('modalDate').innerText = `Published: ${new Date(article.date).toLocaleString()}`;
+            document.getElementById('modalContent').innerText = article.content;
+            document.getElementById('viewArticleModal').classList.add('show');
+        }
+    
+        // Close article view modal
+        function closeViewModal() {
+            document.getElementById('viewArticleModal').classList.remove('show');
+        }
+    
+        // Open delete confirmation modal
+        function openDeleteModal() {
+            document.getElementById('deleteArticleModal').classList.add('show');
+        }
+    
+        // Close delete confirmation modal
+        function closeDeleteModal() {
+            document.getElementById('deleteArticleModal').classList.remove('show');
+        }
+    
+        // Delete article with password protection
+        function deleteArticle() {
+            const password = document.getElementById('adminPasswordForDelete').value;
+            if (password === ADMIN_PASSWORD) {
+                const articleIndex = articles.findIndex(a => a.title === document.getElementById('modalTitle').innerText);
+                articles.splice(articleIndex, 1);
+                localStorage.setItem('articles', JSON.stringify(articles));
+    
+                closeDeleteModal();
+                displayArticles();
+                closeViewModal();
+                displayPagination();
+                document.getElementById('adminPasswordForDelete').value = '';
+            } else {
+                alert("Incorrect password");
+            }
+        }
+
+        document.getElementById('addArticleBtn').addEventListener('click', openArticleModal);
+        document.getElementById('closeAddModal').addEventListener('click', closeArticleModal);
+        document.getElementById('closeViewModal').addEventListener('click', closeViewModal);
+        document.getElementById('closeDeleteModal').addEventListener('click', closeDeleteModal);
+
+        function openArticleModal() {
+            document.getElementById('addArticleModal').classList.add('show');
+        }
+
+        function closeArticleModal() {
+            document.getElementById('addArticleModal').classList.remove('show');
+            clearForm();
+        }
+    
+
+        // Clear form fields
+        function clearForm() {
+            document.getElementById('authorName').value = '';
+            document.getElementById('articleTitle').value = '';
+            document.getElementById('articleContent').value = '';
+            document.getElementById('articleImage').value = '';
+            document.getElementById('adminPassword').value = '';
+        }
+    </script>
+    
+</body>
+</html>

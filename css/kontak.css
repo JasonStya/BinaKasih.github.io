@@ -1,0 +1,75 @@
+#maps{
+    padding-top: 62px;
+}
+
+.col h5{
+    color: #0097b2;
+}
+
+
+.jalan ul li a{
+    margin-bottom: 0px;
+    text-decoration: none;
+    color: black;
+}
+
+.jalan ul li a:hover{
+    margin-bottom: 0px;
+    text-decoration: none;
+    color: rgb(139, 127, 127);
+}
+
+
+
+.message{
+    color: #02b8aa;
+    border-bottom: 2px solid #0097b2;
+}
+
+.form_msg{
+    background-color: var(--bs-body-bg);
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: solid 2px #0097b2 ;
+    background-color: #d8d8d8;
+
+}
+
+.button_msg{
+    width: 150px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #0097b2;
+    border: solid 1px #0097b2;
+    color: white;
+}
+
+.button_msg:hover{
+    background-color: #1d7d8e;
+    border: solid 1px #1d7d8e;
+}
+
+.form form{
+    display: flex;
+    flex-direction:column ;
+    
+}
+
+@media only screen and (max-width:600px){
+
+    .LM{
+        margin: 10px;
+    }
+}
+
+@media (max-width:767px){
+    .row{
+        flex-direction: column;
+        justify-content: none;
+    }
+
+}

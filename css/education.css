@@ -1,0 +1,95 @@
+#edu{
+    padding-top: 62px;
+}
+
+#edueks{
+    background-color: #49c3d8;
+}
+
+.edu{
+    margin-top: 0px;
+}
+
+.osis_title{
+    color: #0097b2;
+}
+
+.eduinfo_title{
+    color: #0097b2;
+    margin-top: 20px;
+}
+
+.edu_info{
+    font-family: arial;
+    font-size: 17px;
+}
+
+.edu_pic{
+    border: #0097b2 10px solid;
+    border-radius: 10px;
+    width: 700px;
+    height: 890px;
+}
+
+.edu_pic{
+    border: #0097b2 10px solid;
+    border-radius: 10px;
+    width: 700px;
+    height: 1000px;
+}
+
+.edu_title{
+    color: white;
+    text-align: center;
+}
+
+.edu_con , .fasi ,.edu_con2{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    gap:90px;
+    flex-wrap: wrap;
+}
+
+.edu_con2{
+    margin-top: 90px;
+}
+
+.border_edu{
+    border: 4px solid #02b8aa;
+    height: 200px;
+    width: 290px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: -1px 0px 8px 0px gray;
+}
+
+
+
+.osis_title{
+    color: #0097b2;
+}
+
+
+.fasi_title{
+    color: #056f82;
+    text-align: center;
+}
+
+
+.img_p{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.line {
+    width: 90%; /* Adjust the width as needed */
+    height: 10px;
+    border-width:10px;
+    background-color: #0097b2;
+    margin: 0px auto; /* Center the line horizontally and add space around it */
+}

@@ -1,0 +1,48 @@
+#karir{
+    padding-top: 62px;
+}
+
+.container h1{
+    color: #0097b2;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.karir_title{
+    color: #0097b2;
+    text-align: center;
+}
+
+.container .ajaran_t{
+    font-weight: bold;
+}
+
+.lowongan ,.ajaran{
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+}
+
+.lowongan h3, .ajaran h3 {
+    color: #0097b2;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.lowongan div ul li ,.ajaran div ul li {
+    margin: 10px;
+}
+
+.ajaran_t{
+    margin-top: 30px;
+}
+
+
+.line {
+    width: 100%; /* Adjust the width as needed */
+    height: 5px;
+    border-width:10px;
+    background-color: #0097b2;
+    margin: 20px auto; /* Center the line horizontally and add space around it */
+}

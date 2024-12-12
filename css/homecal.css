@@ -1,0 +1,101 @@
+.event-icon {
+    background-image: url('image/calender.png');
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    background-color: lightgray;
+    background-size: cover;
+}
+
+#eventList {
+    max-height: 535px; /* Adjust based on how much space you want to allocate */
+    overflow-y: auto; /* Enables vertical scrolling */
+    padding-right: 10px; /* Optional, prevents scrollbar from overlapping content */
+    padding-left: 6px;
+}
+
+.containerevent {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.event_t {
+    margin-left: 30px;
+    color: #0097b2;
+    margin-top: 50px;
+}
+
+.event {
+    background: white;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 300px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.event-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.event-date-time {
+    font-size: 20px;
+    color: #0097b2;
+    margin: 15px 10px 0px 10px;
+}
+
+.event-con{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.event-list-title{
+    display: flex;
+    flex-direction: row;
+}
+
+.event-list-container {
+    display: flex;
+    align-items: center;
+}
+
+.event-arrow {
+    margin: 5px 10px 0px 3px;
+    width: 44px;
+}
+
+.event-title {
+    font-size: 20px;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #0097b2;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #17b7d3;
+}
+

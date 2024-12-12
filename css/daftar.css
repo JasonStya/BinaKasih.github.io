@@ -1,0 +1,14 @@
+#daftar{
+    padding-top: 62px;
+}
+
+.syarat_title , .pro_title{
+    text-align: center;
+    color: #0097b2;
+}
+
+.syarat_usia , .syarat_dokumen , .prosedur{
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+}
